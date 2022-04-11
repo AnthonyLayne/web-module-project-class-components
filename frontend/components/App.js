@@ -20,7 +20,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos,
+      todos: todos,
     };
   }
 
@@ -35,11 +35,34 @@ export default class App extends React.Component {
     }));
   };
 
+  toggleTodo = (todoId) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (todoId === todo.id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    });
+  };
+
+  clearCompletedClick = () => {
+    this.setState({
+      todos: this.state.todos.filter((todo) => !todo.completed),
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} toggleTodo={this.toggleTodo} />
         <Form addTodo={this.addTodo} />
+        <button className="clear" onClick={this.clearCompletedClick}>
+          Clear Completed Todos
+        </button>
       </div>
     );
   }

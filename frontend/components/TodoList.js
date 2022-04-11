@@ -1,18 +1,19 @@
 import React from "react";
 import Todo from "./Todo";
 
-export default class TodoList extends React.Component {
+const TodoList = (props) => {
   //Need to pass props so this component has access to state.
-  render() {
-    return (
+
+  return (
+    <div>
+      TodoList:
       <div>
-        TodoList:
-        <div>
-          {this.props.todos.map((todo) => {
-            return <Todo key={todo.id} todo={todo} />;
-          })}
-        </div>
+        {props.todos.map((todo) => {
+          return <Todo toggleTodo={props.toggleTodo} key={todo.id} todo={todo} />;
+        })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default TodoList;
