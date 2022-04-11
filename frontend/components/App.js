@@ -23,11 +23,23 @@ export default class App extends React.Component {
       todos,
     };
   }
+
+  addTodo = (e, todo) => {
+    const newTodo = {
+      name: todo,
+      id: Date.now(),
+      completed: false,
+    };
+    this.setState((prevState) => ({
+      todos: [...prevState.todos, newTodo],
+    }));
+  };
+
   render() {
     return (
       <div className="App">
         <TodoList todos={this.state.todos} />
-        <Form />
+        <Form addTodo={this.addTodo} />
       </div>
     );
   }
