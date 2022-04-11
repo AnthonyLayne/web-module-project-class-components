@@ -27,7 +27,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList />
+        <TodoList todos={todos} />
         <Form />
       </div>
     );
