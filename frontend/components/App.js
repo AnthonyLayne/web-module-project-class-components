@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import Form from "./Form";
 import TodoList from "./TodoList";
@@ -27,7 +26,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList todos={todos} />
+        <TodoList todos={this.state.todos} />
         <Form />
       </div>
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
   //Need to pass props so this component has access to state.
@@ -6,15 +7,11 @@ export default class TodoList extends React.Component {
     return (
       <div>
         TodoList:
-        <ul>
+        <div>
           {this.props.todos.map((todo) => {
-            return (
-              <li>
-                {todo.name} {todo.finished ? <span>Finished</span> : <span></span>}
-              </li>
-            );
+            return <Todo key={todo.id} todo={todo} />;
           })}
-        </ul>
+        </div>
       </div>
     );
   }

@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export default class Todo extends React.Component {
-  render() {
-    return (
-      <div>
-        Todo
-      </div>
-    )
-  }
-}
+const Todo = (props) => {
+  return (
+    <div>
+      {props.todo.name} {props.todo.finished ? "😎" : ""}
+    </div>
+  );
+};
+export default Todo;
